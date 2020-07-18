@@ -2,26 +2,20 @@
 
 This repository is template for PoShLog sink. Use it whenever you want to wrap any [Serilog sink](https://github.com/serilog/serilog/wiki/Provided-Sinks).
 
-## How to
+## Generating new sink module
 
-* Choose sink name. It should match Serilog sink name.
-* Replace placeholder `SINK_NAME` with your sink name.
-* Look for `FILL_HERE` placeholder and replace it with appropriate text.
-* Make sure you have placed Serilog sink nuget inside `Dependencies.csproj`
+* Run `Generate.ps1 -ProjectTemplateRoot 'Path to template repository'`
+* Enter all information, `Generate.ps1` script ask for
+* New directory with name PoShLog.Sinks.YOUR_SINK_NAME will be created in Template repository parent directory
+* Now all you need to do is to write the sink code in `\PoShLog.Sinks.YOUR_SINK_NAME\src\functions\sinks\Add-SinkYOUR_SINK_NAME.ps1`
+* Finally check module manifest `\PoShLog.Sinks.YOUR_SINK_NAME\src\PoShLog.Sinks.YOUR_SINK_NAME.psd1` and `\PoShLog.Sinks.YOUR_SINK_NAME\README.md` for `TODO` placeholders
 
-Example `Dependencies.csproj` when wrapping [EventLog sink](https://github.com/serilog/serilog-sinks-eventlog)
-[https://www.nuget.org/packages/Serilog.Sinks.EventLog/](https://www.nuget.org/packages/Serilog.Sinks.EventLog/)
+## Building the module
 
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
+* Install [`Invoke-Build`](https://github.com/nightroman/Invoke-Build) module: `Install-Module InvokeBuild`
+* Run `Invoke-Build . \PoShLog.Sinks.YOUR_SINK_NAME\src\PoShLog.Sinks.YOUR_SINK_NAME.Build.ps1 -ModuleVersion 1.0.0 -ReleaseNotes 'Init'`, this will create module prepared for publish in `.\output` directory
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+## Publishing module
 
-  <ItemGroup>
-    <PackageReference Include="Serilog.Sinks.EventLog" Version="3.1.0" />
-  </ItemGroup>
-
-</Project>
-```
+* Set your powershellgallery API key in `$env:psgalleryapikey` environment variable.
+* Run `Invoke-Build . \PoShLog.Sinks.YOUR_SINK_NAME\src\PoShLog.Sinks.YOUR_SINK_NAME.Build.ps1 -ModuleVersion 1.0.0 -ReleaseNotes 'Init' -Configuration Prod`, this will publish module in powershellgallery.

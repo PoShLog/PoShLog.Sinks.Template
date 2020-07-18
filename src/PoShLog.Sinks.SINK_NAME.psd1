@@ -18,7 +18,7 @@ ModuleVersion = '1.0.0'
 CompatiblePSEditions = 'Desktop', 'Core'
 
 # ID used to uniquely identify this module
-GUID = 'NEW_GUID'
+GUID = 'MODULE_ID'
 
 # Author of this module
 Author = 'AUTHOR_NAME'
@@ -31,7 +31,7 @@ Copyright = '(c) 2019 AUTHOR_NAME. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'PoShLog.Sinks.SINK_NAME is extension module for PoShLog core library - https://www.powershellgallery.com/packages/PoShLog.
-It contains sink that publishes log messages to SINK_NAME_READABLE
+It contains sink that publishes log messages to TODO
 
 For documentation check PoShLog wiki - https://github.com/PoShLog/PoShLog/wiki'
 

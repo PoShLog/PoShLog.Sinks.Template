@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NUGET_SINK_NAME" Version="NUGET_SINK_VERSION" />
+    <PackageReference Include="NUGET_NAME" Version="NUGET_VERSION" />
   </ItemGroup>
 
 </Project>
