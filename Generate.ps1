@@ -12,7 +12,7 @@ Copy-Item "$ProjectTemplateRoot\.gitattributes" -Destination $ProjectRoot -Recur
 Copy-Item "$ProjectTemplateRoot\.gitignore" -Destination $ProjectRoot -Recurse -Force
 Copy-Item "$ProjectTemplateRoot\LICENSE" -Destination $ProjectRoot -Recurse -Force
 Copy-Item "$ProjectTemplateRoot\README_TEMPLATE.md" -Destination $ProjectRoot -Recurse -Force
-Rename-Item "$ProjectRoot\README_TEMPLATE.md" -NewName "$ProjectRoot\README.md" 
+Rename-Item "$ProjectRoot\README_TEMPLATE.md" -NewName "README.md"
 
 $allFiles = Get-ChildItem -Path $ProjectRoot -Recurse | Where-Object { -not $_.PSIsContainer -and $_.Name -ne 'Generate.ps1' }
 foreach($file in $allFiles){
